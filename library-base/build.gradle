@@ -1,0 +1,89 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.version["minSdkVersion"]
+        targetSdkVersion rootProject.ext.version["targetSdkVersion"]
+        versionCode rootProject.ext.version["versionCode"]
+        versionName rootProject.ext.version["versionName"]
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+//    // ARouter
+//    api "com.alibaba:arouter-api:${rootProject.ext.version["arouterapi"]}"
+//    annotationProcessor "com.alibaba:arouter-compiler:${rootProject.ext.version["aroutercompiler"]}"
+    // Mosby
+    api(name: 'mosby-release', ext: 'aar')
+    // AppCompat
+    api "androidx.appcompat:appcompat:${rootProject.ext.version["appcompat"]}"
+    // ConstraintLayout
+    api "androidx.constraintlayout:constraintlayout:${rootProject.ext.version["constraintlayout"]}"
+    // CardView
+    api "androidx.cardview:cardview:${rootProject.ext.version["cardview"]}"
+    // RecyclerView
+    api "androidx.recyclerview:recyclerview:${rootProject.ext.version["recyclerview"]}"
+    // ButterKnife
+    api "com.jakewharton:butterknife:${rootProject.ext.version["butterknife"]}"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${rootProject.ext.version["butterknifecompiler"]}"
+    // PhotoView
+    api "com.github.chrisbanes:PhotoView:${rootProject.ext.version["photoview"]}"
+    // Glide
+    api "com.github.bumptech.glide:glide:${rootProject.ext.version["glide"]}"
+    annotationProcessor "com.github.bumptech.glide:compiler:${rootProject.ext.version["glidecompiler"]}"
+    // RxJava2 [RxJava arrive version 3]
+    api "io.reactivex.rxjava2:rxjava:${rootProject.ext.version["rxjava"]}"
+    api "io.reactivex.rxjava2:rxandroid:${rootProject.ext.version["rxandroid"]}"
+    // Dagger2
+    api "com.google.dagger:dagger:${rootProject.ext.version["dagger"]}"
+    annotationProcessor "com.google.dagger:dagger-compiler:${rootProject.ext.version["daggercompiler"]}"
+    // Retrofit2
+    api "com.squareup.retrofit2:retrofit:${rootProject.ext.version["retrofit"]}"
+    api "com.squareup.retrofit2:converter-gson:${rootProject.ext.version["convertergson"]}"
+    api "com.squareup.retrofit2:adapter-rxjava2:${rootProject.ext.version["adapterrxjava2"]}"
+    // OkHttp3
+    api "com.squareup.okhttp3:okhttp:${rootProject.ext.version["okhttp"]}"
+    api "com.squareup.okhttp3:logging-interceptor:${rootProject.ext.version["logginginterceptor"]}"
+    // EventBus
+    api "org.greenrobot:eventbus:${rootProject.ext.version["eventbus"]}"
+    // Logger
+    api "com.orhanobut:logger:${rootProject.ext.version["logger"]}"
+    // MultiDex
+    api 'com.android.support:multidex:1.0.0'
+}

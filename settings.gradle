@@ -1,0 +1,4 @@
+rootProject.name='Midden'
+include ':app'
+include ':library-base'
+include ':module-gank'

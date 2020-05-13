@@ -1,0 +1,18 @@
+apply from: "../common.gradle"
+
+android {
+    resourcePrefix "gank_"
+
+    defaultConfig {
+        if (separate.toBoolean()) {
+            applicationId "com.aokiji.module.gank"
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // Library-Base
+    api project(path: ':library-base')
+}
