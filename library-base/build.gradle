@@ -70,6 +70,8 @@ dependencies {
     // RxJava2 [RxJava arrive version 3]
     api "io.reactivex.rxjava2:rxjava:${rootProject.ext.version["rxjava"]}"
     api "io.reactivex.rxjava2:rxandroid:${rootProject.ext.version["rxandroid"]}"
+    // RxPermissions
+    api "com.github.tbruyelle:rxpermissions:${rootProject.ext.version["rxpermissions"]}"
     // Dagger2
     api "com.google.dagger:dagger:${rootProject.ext.version["dagger"]}"
     annotationProcessor "com.google.dagger:dagger-compiler:${rootProject.ext.version["daggercompiler"]}"

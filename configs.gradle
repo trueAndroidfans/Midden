@@ -20,6 +20,7 @@ ext {
             glidecompiler      : "4.11.0",
             rxjava             : "2.2.19",
             rxandroid          : "2.1.1",
+            rxpermissions      : "0.10.2",
             retrofit           : "2.8.1",
             convertergson      : "2.8.1",
             adapterrxjava2     : "2.8.1",
