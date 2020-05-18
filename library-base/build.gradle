@@ -46,9 +46,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-//    // ARouter
-//    api "com.alibaba:arouter-api:${rootProject.ext.version["arouterapi"]}"
-//    annotationProcessor "com.alibaba:arouter-compiler:${rootProject.ext.version["aroutercompiler"]}"
     // Mosby
     api(name: 'mosby-release', ext: 'aar')
     // AppCompat
@@ -59,9 +56,6 @@ dependencies {
     api "androidx.cardview:cardview:${rootProject.ext.version["cardview"]}"
     // RecyclerView
     api "androidx.recyclerview:recyclerview:${rootProject.ext.version["recyclerview"]}"
-    // ButterKnife
-    api "com.jakewharton:butterknife:${rootProject.ext.version["butterknife"]}"
-    annotationProcessor "com.jakewharton:butterknife-compiler:${rootProject.ext.version["butterknifecompiler"]}"
     // PhotoView
     api "com.github.chrisbanes:PhotoView:${rootProject.ext.version["photoview"]}"
     // Glide

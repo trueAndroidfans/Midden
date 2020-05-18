@@ -27,7 +27,8 @@
         <activity
             android:name=".ui.activity.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="unspecified" />
+            android:screenOrientation="unspecified"
+            android:theme="@style/BlueStatusBarTheme" />
     </application>
 
 </manifest>

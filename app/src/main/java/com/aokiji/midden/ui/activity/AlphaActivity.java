@@ -11,6 +11,7 @@ import java.util.concurrent.TimeUnit;
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 
+
 public class AlphaActivity extends BaseActivity {
 
     @Override

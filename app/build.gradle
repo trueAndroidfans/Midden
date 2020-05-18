@@ -18,6 +18,8 @@ android {
                 arguments = [AROUTER_MODULE_NAME: project.getName()]
             }
         }
+
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -51,6 +53,9 @@ dependencies {
     // ARouter
     api "com.alibaba:arouter-api:${rootProject.ext.version["arouterapi"]}"
     annotationProcessor "com.alibaba:arouter-compiler:${rootProject.ext.version["aroutercompiler"]}"
+    // ButterKnife
+    api "com.jakewharton:butterknife:${rootProject.ext.version["butterknife"]}"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${rootProject.ext.version["butterknifecompiler"]}"
     // Library-Base
     implementation project(path: ':library-base')
     if (!separate.toBoolean()) {

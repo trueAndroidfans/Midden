@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Midden</string>
+
+    <string name="text_main">首页</string>
+    <string name="text_gank">干货集中营</string>
+    <string name="text_wanandroid">玩 Android</string>
 </resources>
