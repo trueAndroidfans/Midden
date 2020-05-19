@@ -4,10 +4,11 @@
 
     <application>
         <activity
-            android:name=".GankMainActivity"
+            android:name=".modules.main.GankMainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:launchMode="singleTop"
-            android:screenOrientation="unspecified" />
+            android:screenOrientation="unspecified"
+            android:theme="@style/BlueStatusBarTheme" />
     </application>
 
 </manifest>

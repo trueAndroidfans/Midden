@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".GankMainActivity"
+            android:name=".modules.main.GankMainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="unspecified">
             <intent-filter>

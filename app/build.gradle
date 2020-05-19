@@ -56,8 +56,8 @@ dependencies {
     // ButterKnife
     api "com.jakewharton:butterknife:${rootProject.ext.version["butterknife"]}"
     annotationProcessor "com.jakewharton:butterknife-compiler:${rootProject.ext.version["butterknifecompiler"]}"
-    // Library-Base
-    implementation project(path: ':library-base')
+    // Library-Ui [library-ui依赖 library-base,如果模块需要引用UI资源,则依赖 library-ui否则依赖 library-base即可]
+    api project(path: ':library-ui')
     if (!separate.toBoolean()) {
         runtimeOnly project(":module-gank")
     }

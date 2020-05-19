@@ -1,10 +1,11 @@
-package com.aokiji.module.gank;
+package com.aokiji.module.gank.modules.main;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.aokiji.module.gank.R;
 
 import static com.aokiji.library.base.RouteHub.GANK_MAIN;
 
