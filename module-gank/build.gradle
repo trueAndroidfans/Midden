@@ -15,4 +15,6 @@ dependencies {
 
     // Library-Ui [library-ui依赖 library-base,如果模块需要引用UI资源,则依赖 library-ui否则依赖 library-base即可]
     api project(path: ':library-ui')
+    // Library-Network [library-network依赖 library-base,如果模块需要网络交互,则依赖 library-network否则依赖 library-base即可]
+    api project(path: ':library-network')
 }

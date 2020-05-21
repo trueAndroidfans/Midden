@@ -42,10 +42,14 @@ dependencies {
 
     // Mosby
     api(name: 'mosby-release', ext: 'aar')
+    // ARouter
+    api "com.alibaba:arouter-api:${rootProject.ext.version["arouterapi"]}"
     // AppCompat
     api "androidx.appcompat:appcompat:${rootProject.ext.version["appcompat"]}"
     // Material
     api "com.google.android.material:material:${rootProject.ext.version["material"]}"
+    // ButterKnife
+    api "com.jakewharton:butterknife:${rootProject.ext.version["butterknife"]}"
     // Glide
     api "com.github.bumptech.glide:glide:${rootProject.ext.version["glide"]}"
     annotationProcessor "com.github.bumptech.glide:compiler:${rootProject.ext.version["glidecompiler"]}"
@@ -56,14 +60,6 @@ dependencies {
     api "com.github.tbruyelle:rxpermissions:${rootProject.ext.version["rxpermissions"]}"
     // Dagger2
     api "com.google.dagger:dagger:${rootProject.ext.version["dagger"]}"
-    annotationProcessor "com.google.dagger:dagger-compiler:${rootProject.ext.version["daggercompiler"]}"
-    // Retrofit2
-    api "com.squareup.retrofit2:retrofit:${rootProject.ext.version["retrofit"]}"
-    api "com.squareup.retrofit2:converter-gson:${rootProject.ext.version["convertergson"]}"
-    api "com.squareup.retrofit2:adapter-rxjava2:${rootProject.ext.version["adapterrxjava2"]}"
-    // OkHttp3
-    api "com.squareup.okhttp3:okhttp:${rootProject.ext.version["okhttp"]}"
-    api "com.squareup.okhttp3:logging-interceptor:${rootProject.ext.version["logginginterceptor"]}"
     // EventBus
     api "org.greenrobot:eventbus:${rootProject.ext.version["eventbus"]}"
     // Logger

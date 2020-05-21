@@ -16,7 +16,7 @@
             android:name=".ui.activity.AlphaActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="unspecified"
-            android:theme="@style/BlueStatusBarTheme">
+            android:theme="@style/FullScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

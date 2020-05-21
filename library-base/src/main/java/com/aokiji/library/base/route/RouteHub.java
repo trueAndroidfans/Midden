@@ -1,4 +1,4 @@
-package com.aokiji.library.base;
+package com.aokiji.library.base.route;
 
 public class RouteHub {
 

@@ -18,8 +18,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static com.aokiji.library.base.RouteHub.GANK_MAIN;
-import static com.aokiji.midden.Settings.DEBUG;
+import static com.aokiji.library.base.Settings.DEBUG;
+import static com.aokiji.library.base.route.RouteHub.GANK_MAIN;
 
 public class MainActivity extends BaseActivity {
 
