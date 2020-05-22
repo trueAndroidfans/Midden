@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="text_no_data">暂无数据!</string>
     <string name="text_error">发生了错误!单击此处重试</string>
+    <string name="text_no_network">当前无网络连接!请检查</string>
     <string name="text_loading">加载中...</string>
     <string name="text_loading_end">已经到底了</string>
+    <string name="text_try_again">再试一次退出程序!</string>
 </resources>

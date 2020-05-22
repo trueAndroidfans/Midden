@@ -3,6 +3,7 @@ if (separate.toBoolean()) {
 } else {
     apply plugin: 'com.android.library'
 }
+apply plugin: 'com.jakewharton.butterknife'
 
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
@@ -19,6 +20,7 @@ android {
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = [AROUTER_MODULE_NAME: project.getName()]
+                includeCompileClasspath true
             }
         }
 
@@ -75,4 +77,6 @@ dependencies {
     annotationProcessor "com.alibaba:arouter-compiler:${rootProject.ext.version["aroutercompiler"]}"
     // Dagger2
     annotationProcessor "com.google.dagger:dagger-compiler:${rootProject.ext.version["daggercompiler"]}"
+    // LeakCanary
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.3'
 }

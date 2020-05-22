@@ -59,4 +59,6 @@ dependencies {
     if (!separate.toBoolean()) {
         runtimeOnly project(":module-gank")
     }
+    // LeakCanary
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.3'
 }
