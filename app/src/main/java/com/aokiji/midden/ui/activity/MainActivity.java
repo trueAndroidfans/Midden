@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import androidx.activity.OnBackPressedDispatcherOwner;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityOptionsCompat;
 
@@ -13,14 +12,12 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.aokiji.midden.App;
 import com.aokiji.midden.R;
 import com.aokiji.mosby.base.BaseActivity;
-import com.aokiji.mosby.utils.ToastUtil;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 
 import static com.aokiji.library.base.Settings.DEBUG;
 import static com.aokiji.library.base.route.RouteHub.GANK_MAIN;
@@ -96,5 +93,5 @@ public class MainActivity extends BaseActivity {
             System.exit(0);
         }
     }
-    
+
 }

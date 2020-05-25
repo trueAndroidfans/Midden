@@ -5,14 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.aokiji.library.network.models.gank.meizhi.Meizhi;
 import com.aokiji.library.ui.listener.OnItemClickListener;
-import com.aokiji.library.ui.widget.RatioImageView;
 import com.aokiji.module.gank.R;
 import com.bumptech.glide.Glide;
 
@@ -46,9 +44,7 @@ public class MeizhiAdapter extends RecyclerView.Adapter<MeizhiAdapter.ViewHolder
                 .load(meizhi.getUrl())
                 .placeholder(R.color.color_f3)
                 .error(R.color.color_f3)
-
                 .into(holder.ivMeizhi);
-        holder.tvTitle.setText(meizhi.getDesc());
 
         if (mOnItemClickListener != null) {
             holder.ivMeizhi.setOnClickListener(v -> mOnItemClickListener.onItemClick(holder.ivMeizhi, holder.getLayoutPosition()));
@@ -62,13 +58,11 @@ public class MeizhiAdapter extends RecyclerView.Adapter<MeizhiAdapter.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private RatioImageView ivMeizhi;
-        private TextView tvTitle;
+        private ImageView ivMeizhi;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ivMeizhi = itemView.findViewById(R.id.iv_meizhi);
-            tvTitle = itemView.findViewById(R.id.tv_title);
         }
     }
 }

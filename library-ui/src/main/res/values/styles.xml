@@ -17,4 +17,6 @@
 
     <style name="BlueStatusBarTheme" parent="AppTheme" />
 
+    <style name="BlackStatusBarTheme" parent="AppTheme" />
+
 </resources>

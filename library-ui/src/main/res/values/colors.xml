@@ -8,4 +8,10 @@
     <color name="color_65">#656565</color>
     <color name="color_2c">#2C2C2C</color>
     <color name="color_f3">#F3F3F3</color>
+    <color name="color_ff_80">#80FFFFFF</color>
+    <color name="color_00_0d">#0D000000</color>
+    <color name="color_00_33">#33000000</color>
+    <color name="color_00_E6">#E6000000</color>
+    <color name="color_00_F2">#F2000000</color>
+    <color name="color_e6">#E6E6E6</color>
 </resources>

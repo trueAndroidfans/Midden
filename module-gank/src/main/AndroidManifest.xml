@@ -6,6 +6,11 @@
 
     <application>
         <activity
+            android:name=".modules.details.DetailsActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="unspecified"
+            android:theme="@style/BlackStatusBarTheme"></activity>
+        <activity
             android:name=".modules.main.GankMainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:launchMode="singleTop"

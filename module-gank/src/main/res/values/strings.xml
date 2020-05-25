@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">module-gank</string>
     <string name="title_main">妹纸</string>
+    <string name="title_details">详情</string>
+
+    <string name="tn_meizhi">MEIZHI</string>
 </resources>

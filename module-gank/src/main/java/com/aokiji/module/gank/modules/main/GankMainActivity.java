@@ -1,9 +1,12 @@
 package com.aokiji.module.gank.modules.main;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -15,6 +18,7 @@ import com.aokiji.library.ui.adapter.AdapterWrapper;
 import com.aokiji.library.ui.listener.OnLoadMoreListener;
 import com.aokiji.module.gank.R;
 import com.aokiji.module.gank.R2;
+import com.aokiji.module.gank.modules.details.DetailsActivity;
 import com.aokiji.module.gank.ui.adapter.MeizhiAdapter;
 import com.aokiji.mosby.mvp.lce.MvpLceActivity;
 
@@ -41,7 +45,6 @@ public class GankMainActivity extends MvpLceActivity<SwipeRefreshLayout, List<Me
     @Inject
     GankPresenter mPresenter;
 
-    // 页码
     private int pageNum = 1;
     private List<Meizhi> mList = new ArrayList<>();
     private MeizhiAdapter mAdapter;
@@ -92,7 +95,11 @@ public class GankMainActivity extends MvpLceActivity<SwipeRefreshLayout, List<Me
         rvGirl.setLayoutManager(manager);
         mAdapter = new MeizhiAdapter(this, mList);
         mAdapter.setOnItemClickListener((view, position) -> {
-
+            Meizhi meizhi = mList.get(position);
+            ActivityOptionsCompat compat = ActivityOptionsCompat.makeSceneTransitionAnimation(this, view, getString(R.string.tn_meizhi));
+            Intent intent = new Intent(GankMainActivity.this, DetailsActivity.class);
+            intent.putExtra("URL", meizhi.getUrl());
+            ActivityCompat.startActivity(GankMainActivity.this, intent, compat.toBundle());
         });
         mAdapterWrapper = new AdapterWrapper(mAdapter);
         rvGirl.setAdapter(mAdapterWrapper);
