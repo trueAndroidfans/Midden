@@ -99,6 +99,7 @@ public class GankMainActivity extends MvpLceActivity<SwipeRefreshLayout, List<Me
             ActivityOptionsCompat compat = ActivityOptionsCompat.makeSceneTransitionAnimation(this, view, getString(R.string.tn_meizhi));
             Intent intent = new Intent(GankMainActivity.this, DetailsActivity.class);
             intent.putExtra("URL", meizhi.getUrl());
+            intent.putExtra("DESC", meizhi.getDesc());
             ActivityCompat.startActivity(GankMainActivity.this, intent, compat.toBundle());
         });
         mAdapterWrapper = new AdapterWrapper(mAdapter);

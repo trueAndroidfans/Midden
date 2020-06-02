@@ -2,6 +2,9 @@
     <string name="app_name">module-gank</string>
     <string name="title_main">妹纸</string>
     <string name="title_details">详情</string>
+    <string name="text_tip">提示</string>
+    <string name="text_download">是否下载该图片?</string>
+    <string name="text_download_success">下载成功!</string>
 
     <string name="tn_meizhi">MEIZHI</string>
 </resources>
