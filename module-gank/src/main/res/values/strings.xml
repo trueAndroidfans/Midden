@@ -5,6 +5,7 @@
     <string name="text_tip">提示</string>
     <string name="text_download">是否下载该图片?</string>
     <string name="text_download_success">下载成功!</string>
+    <string name="title_edit">编辑图片</string>
 
     <string name="tn_meizhi">MEIZHI</string>
 </resources>
