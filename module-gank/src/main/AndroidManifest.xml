@@ -5,7 +5,11 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application>
-        <activity android:name=".modules.details.edit.EditActivity"></activity>
+        <activity
+            android:name=".modules.details.edit.EditActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="unspecified"
+            android:theme="@style/BlueStatusBarTheme"></activity>
         <activity
             android:name=".modules.details.DetailsActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"

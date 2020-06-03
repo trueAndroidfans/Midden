@@ -20,14 +20,16 @@
         <ImageView
             android:id="@+id/iv_preview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:transitionName="@string/tn_preview" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_preview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="@android:color/transparent" />
+            android:background="@android:color/transparent"
+            android:overScrollMode="never" />
 
     </RelativeLayout>
 

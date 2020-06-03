@@ -1,14 +1,18 @@
 package com.aokiji.module.gank.modules.details;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
 
 import com.aokiji.module.gank.R;
 import com.aokiji.module.gank.R2;
+import com.aokiji.module.gank.modules.details.edit.EditActivity;
 import com.aokiji.module.gank.utils.RxGank;
 import com.aokiji.mosby.base.BaseActivity;
 import com.bumptech.glide.Glide;
@@ -71,6 +75,7 @@ public class DetailsActivity extends BaseActivity {
                 .setCancelable(false)
                 .setPositiveButton(android.R.string.ok, (dialog, which) -> {
                     dialog.dismiss();
+                    mDesc = TextUtils.isEmpty(mDesc) ? String.valueOf(System.currentTimeMillis()) : mDesc;
                     RxGank.saveImage(DetailsActivity.this, mUrl, mDesc)
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribe(path ->
@@ -81,6 +86,16 @@ public class DetailsActivity extends BaseActivity {
                 .setNegativeButton(android.R.string.cancel, (dialog, which) -> {
                     dialog.dismiss();
                 }).show();
+    }
+
+
+    @OnClick(R2.id.iv_edit)
+    void edit() {
+        ActivityOptionsCompat compat = ActivityOptionsCompat.makeSceneTransitionAnimation(this, ivMeizhi, getString(R.string.tn_preview));
+        Intent intent = new Intent(this, EditActivity.class);
+        intent.putExtra("URL", mUrl);
+        intent.putExtra("DESC", mDesc);
+        ActivityCompat.startActivity(this, intent, compat.toBundle());
     }
 
 }
