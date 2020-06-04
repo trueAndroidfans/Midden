@@ -22,6 +22,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 
 public class DetailsActivity extends BaseActivity {
 
@@ -35,6 +37,8 @@ public class DetailsActivity extends BaseActivity {
     private String mUrl;
     private String mDesc;
 
+    private CompositeDisposable mCompositeDisposable;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,8 +51,6 @@ public class DetailsActivity extends BaseActivity {
 
     private void initData() {
         mUrl = getIntent().getStringExtra("URL");
-        // 清除所有换行符,空格
-        mDesc = getIntent().getStringExtra("DESC").replaceAll("\n", "").replaceAll(" ", "");
         if (!TextUtils.isEmpty(mUrl)) {
             Glide.with(this)
                     .load(mUrl)
@@ -58,6 +60,9 @@ public class DetailsActivity extends BaseActivity {
         } else {
             finish();
         }
+        // 清除所有换行符,空格
+        mDesc = getIntent().getStringExtra("DESC").replaceAll("\n", "").replaceAll(" ", "");
+        mCompositeDisposable = new CompositeDisposable();
     }
 
 
@@ -76,16 +81,20 @@ public class DetailsActivity extends BaseActivity {
                 .setPositiveButton(android.R.string.ok, (dialog, which) -> {
                     dialog.dismiss();
                     mDesc = TextUtils.isEmpty(mDesc) ? String.valueOf(System.currentTimeMillis()) : mDesc;
-                    RxGank.saveImage(DetailsActivity.this, mUrl, mDesc)
+                    Disposable disposable = RxGank.saveImage(DetailsActivity.this, mUrl, mDesc)
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribe(path ->
                                             Toast.makeText(DetailsActivity.this, String.format("%s%s", getString(R.string.text_download_success), path), Toast.LENGTH_SHORT).show(),
                                     throwable ->
                                             Toast.makeText(DetailsActivity.this, throwable.getMessage(), Toast.LENGTH_SHORT).show());
+                    if (mCompositeDisposable != null) {
+                        mCompositeDisposable.add(disposable);
+                    }
                 })
                 .setNegativeButton(android.R.string.cancel, (dialog, which) -> {
                     dialog.dismiss();
                 }).show();
+
     }
 
 
@@ -96,6 +105,15 @@ public class DetailsActivity extends BaseActivity {
         intent.putExtra("URL", mUrl);
         intent.putExtra("DESC", mDesc);
         ActivityCompat.startActivity(this, intent, compat.toBundle());
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mCompositeDisposable != null) {
+            mCompositeDisposable.dispose();
+        }
     }
 
 }

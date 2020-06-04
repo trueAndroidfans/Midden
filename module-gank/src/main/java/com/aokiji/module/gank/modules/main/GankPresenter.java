@@ -11,6 +11,8 @@ import com.aokiji.mosby.mvp.MvpBasePresenter;
 import javax.inject.Inject;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 public class GankPresenter extends MvpBasePresenter<GankView> {
@@ -18,17 +20,20 @@ public class GankPresenter extends MvpBasePresenter<GankView> {
     private Context mContext;
     private GankApi mApi;
 
+    private CompositeDisposable mCompositeDisposable;
+
     @Inject
     public GankPresenter(Context context, GankApi api) {
         this.mContext = context;
         this.mApi = api;
+        mCompositeDisposable = new CompositeDisposable();
     }
 
 
     public void getMeizhiList(int pageNum, boolean pullToRefresh) {
         ifViewAttached(gankView -> {
             gankView.showLoading(pullToRefresh);
-            mApi.getMeizhiList(pageNum)
+            Disposable disposable = mApi.getMeizhiList(pageNum)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(data -> {
@@ -43,6 +48,9 @@ public class GankPresenter extends MvpBasePresenter<GankView> {
                             gankView.showError(new Throwable(mContext.getString(R.string.text_no_network)), pullToRefresh);
                         }
                     });
+            if (mCompositeDisposable != null) {
+                mCompositeDisposable.add(disposable);
+            }
         });
     }
 
@@ -51,6 +59,10 @@ public class GankPresenter extends MvpBasePresenter<GankView> {
     public void destroy() {
         super.destroy();
         mContext = null;
+        if (mCompositeDisposable != null) {
+            mCompositeDisposable.dispose();
+            mCompositeDisposable = null;
+        }
     }
 
 }

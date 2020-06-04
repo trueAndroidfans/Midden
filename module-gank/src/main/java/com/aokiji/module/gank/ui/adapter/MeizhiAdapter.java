@@ -4,13 +4,13 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.aokiji.library.network.models.gank.meizhi.Meizhi;
 import com.aokiji.library.ui.listener.OnItemClickListener;
+import com.aokiji.library.ui.widget.RatioImageView;
 import com.aokiji.module.gank.R;
 import com.bumptech.glide.Glide;
 
@@ -27,15 +27,18 @@ public class MeizhiAdapter extends RecyclerView.Adapter<MeizhiAdapter.ViewHolder
         this.mList = list;
     }
 
+
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.mOnItemClickListener = onItemClickListener;
     }
+
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ViewHolder(LayoutInflater.from(mContext).inflate(R.layout.recycler_item_meizhi, parent, false));
     }
+
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
@@ -51,18 +54,21 @@ public class MeizhiAdapter extends RecyclerView.Adapter<MeizhiAdapter.ViewHolder
         }
     }
 
+
     @Override
     public int getItemCount() {
         return mList.size();
     }
 
+
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private ImageView ivMeizhi;
+        private RatioImageView ivMeizhi;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ivMeizhi = itemView.findViewById(R.id.iv_meizhi);
         }
     }
+
 }
