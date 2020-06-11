@@ -17,6 +17,4 @@ dependencies {
     api project(path: ':library-ui')
     // Library-Network [library-network依赖 library-base,如果模块需要网络交互,则依赖 library-network否则依赖 library-base即可]
     api project(path: ':library-network')
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 }

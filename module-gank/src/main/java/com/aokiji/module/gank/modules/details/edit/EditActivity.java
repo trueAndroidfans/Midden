@@ -7,6 +7,7 @@ import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -53,6 +54,21 @@ public class EditActivity extends BaseActivity {
     }
 
 
+    private void initData() {
+        mUrl = getIntent().getStringExtra("URL");
+        mDesc = getIntent().getStringExtra("DESC");
+        for (int i = 0; i < 12; i++) {
+            PreviewImage image = new PreviewImage();
+            image.setPreviewType(i);
+            image.setUrl(mUrl);
+            image.setDesc(mDesc);
+            image.setChecked(false);
+            mList.add(image);
+        }
+        mList.get(0).setChecked(true);
+    }
+
+
     private void initView() {
         mScreenWidth = ScreenUtil.getScreenWidth(getApplicationContext());
         mScreenHeight = ScreenUtil.getScreenHeight(getApplicationContext());
@@ -79,7 +95,7 @@ public class EditActivity extends BaseActivity {
     private void setupRecyclerView() {
         RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) rvPreview.getLayoutParams();
         // RecyclerView 高度
-        int awesomeHeight = Math.round(mScreenHeight / 6);
+        int awesomeHeight = Math.round((mScreenHeight - 50) / 5);
         // Item 宽度
         int awesomeWidth = Math.round(mScreenWidth / 5);
         params.height = awesomeHeight;
@@ -100,25 +116,10 @@ public class EditActivity extends BaseActivity {
     }
 
 
-    private void initData() {
-        mUrl = getIntent().getStringExtra("URL");
-        mDesc = getIntent().getStringExtra("DESC");
-        for (int i = 0; i < 12; i++) {
-            PreviewImage image = new PreviewImage();
-            image.setPreviewType(i);
-            image.setUrl(mUrl);
-            image.setDesc(mDesc);
-            image.setChecked(false);
-            mList.add(image);
-        }
-        mList.get(0).setChecked(true);
-    }
-
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            finish();
+            ActivityCompat.finishAfterTransition(EditActivity.this);
             return true;
         }
         return super.onOptionsItemSelected(item);

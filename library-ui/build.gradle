@@ -43,6 +43,15 @@ dependencies {
 
     // Library-Base
     api project(path: ':library-base')
+    // Material
+    api "com.google.android.material:material:${rootProject.ext.version["material"]}"
+    // ButterKnife
+    api "com.jakewharton:butterknife:${rootProject.ext.version["butterknife"]}"
+    // Glide
+    api "com.github.bumptech.glide:glide:${rootProject.ext.version["glide"]}"
+    // Glide-Transformations
+    api 'jp.wasabeef:glide-transformations:4.0.0'
+    api 'jp.co.cyberagent.android:gpuimage:2.0.0'
     // ConstraintLayout
     api "androidx.constraintlayout:constraintlayout:${rootProject.ext.version["constraintlayout"]}"
     // CardView

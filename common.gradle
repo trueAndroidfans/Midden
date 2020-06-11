@@ -75,6 +75,8 @@ dependencies {
     annotationProcessor "com.jakewharton:butterknife-compiler:${rootProject.ext.version["butterknifecompiler"]}"
     // ARouter
     annotationProcessor "com.alibaba:arouter-compiler:${rootProject.ext.version["aroutercompiler"]}"
+    // Glide
+    annotationProcessor "com.github.bumptech.glide:compiler:${rootProject.ext.version["glidecompiler"]}"
     // Dagger2
     annotationProcessor "com.google.dagger:dagger-compiler:${rootProject.ext.version["daggercompiler"]}"
     // LeakCanary

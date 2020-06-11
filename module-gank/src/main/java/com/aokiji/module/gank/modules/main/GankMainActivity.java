@@ -70,7 +70,9 @@ public class GankMainActivity extends MvpLceActivity<SwipeRefreshLayout, List<Me
 
     private void initView() {
         setupToolbar();
+
         setupRefreshLayout();
+
         setupRecyclerView();
     }
 

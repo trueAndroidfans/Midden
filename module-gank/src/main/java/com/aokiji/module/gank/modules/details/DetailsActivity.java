@@ -68,7 +68,7 @@ public class DetailsActivity extends BaseActivity {
 
     @OnClick(R2.id.iv_meizhi)
     void exit() {
-        finish();
+        ActivityCompat.finishAfterTransition(this);
     }
 
 
