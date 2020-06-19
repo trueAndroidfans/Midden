@@ -16,6 +16,7 @@ import com.aokiji.module.gank.modules.details.edit.EditActivity;
 import com.aokiji.module.gank.utils.RxGank;
 import com.aokiji.mosby.base.BaseActivity;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.Target;
 import com.github.chrisbanes.photoview.PhotoView;
 
 import butterknife.BindView;
@@ -54,6 +55,7 @@ public class DetailsActivity extends BaseActivity {
         if (!TextUtils.isEmpty(mUrl)) {
             Glide.with(this)
                     .load(mUrl)
+                    .override(Target.SIZE_ORIGINAL)
                     .placeholder(R.color.color_f3)
                     .error(R.color.color_f3)
                     .into(ivMeizhi);

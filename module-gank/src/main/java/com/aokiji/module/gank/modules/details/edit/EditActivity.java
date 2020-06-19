@@ -3,7 +3,6 @@ package com.aokiji.module.gank.modules.details.edit;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
@@ -11,13 +10,15 @@ import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.aokiji.library.base.utils.screen.ScreenUtil;
 import com.aokiji.module.gank.R;
 import com.aokiji.module.gank.R2;
 import com.aokiji.module.gank.model.PreviewImage;
 import com.aokiji.module.gank.ui.adapter.PreviewAdapter;
+import com.aokiji.module.gank.utils.RequestOptionsProvider;
 import com.aokiji.mosby.base.BaseActivity;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.Target;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,8 +34,6 @@ public class EditActivity extends BaseActivity {
     ImageView ivPreview;
     @BindView(R2.id.rv_preview)
     RecyclerView rvPreview;
-
-    private int mScreenWidth, mScreenHeight = 0;
 
     private String mUrl;
     private String mDesc;
@@ -70,13 +69,11 @@ public class EditActivity extends BaseActivity {
 
 
     private void initView() {
-        mScreenWidth = ScreenUtil.getScreenWidth(getApplicationContext());
-        mScreenHeight = ScreenUtil.getScreenHeight(getApplicationContext());
-
         setupToolbar();
 
         Glide.with(this)
                 .load(mUrl)
+                .override(Target.SIZE_ORIGINAL)
                 .placeholder(R.color.color_e6)
                 .error(R.color.color_e6)
                 .into(ivPreview);
@@ -93,24 +90,16 @@ public class EditActivity extends BaseActivity {
 
 
     private void setupRecyclerView() {
-        RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) rvPreview.getLayoutParams();
-        // RecyclerView 高度
-        int awesomeHeight = Math.round((mScreenHeight - 50) / 5);
-        // Item 宽度
-        int awesomeWidth = Math.round(mScreenWidth / 5);
-        params.height = awesomeHeight;
-        rvPreview.requestLayout();
         LinearLayoutManager manager = new LinearLayoutManager(this);
         manager.setOrientation(RecyclerView.HORIZONTAL);
         rvPreview.setLayoutManager(manager);
         mAdapter = new PreviewAdapter(this, mList);
-        mAdapter.setAwesomeWidth(awesomeWidth);
         mAdapter.setOnItemClickListener((view, position) -> {
-            for (PreviewImage item : mList) {
-                item.setChecked(false);
-            }
-            mList.get(position).setChecked(true);
-            mAdapter.notifyDataSetChanged();
+            Glide.with(EditActivity.this)
+                    .load(mUrl)
+                    .override(Target.SIZE_ORIGINAL)
+                    .apply(RequestOptionsProvider.provide(mList.get(position).getPreviewType()))
+                    .into(ivPreview);
         });
         rvPreview.setAdapter(mAdapter);
     }

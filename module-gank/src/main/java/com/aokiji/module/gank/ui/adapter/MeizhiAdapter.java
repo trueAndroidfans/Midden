@@ -4,15 +4,16 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.aokiji.library.network.models.gank.meizhi.Meizhi;
 import com.aokiji.library.ui.listener.OnItemClickListener;
-import com.aokiji.library.ui.widget.RatioImageView;
 import com.aokiji.module.gank.R;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.Target;
 
 import java.util.List;
 
@@ -45,6 +46,7 @@ public class MeizhiAdapter extends RecyclerView.Adapter<MeizhiAdapter.ViewHolder
         Meizhi meizhi = mList.get(position);
         Glide.with(mContext)
                 .load(meizhi.getUrl())
+                .override(Target.SIZE_ORIGINAL)
                 .placeholder(R.color.color_f3)
                 .error(R.color.color_f3)
                 .into(holder.ivMeizhi);
@@ -63,7 +65,7 @@ public class MeizhiAdapter extends RecyclerView.Adapter<MeizhiAdapter.ViewHolder
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private RatioImageView ivMeizhi;
+        private ImageView ivMeizhi;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
