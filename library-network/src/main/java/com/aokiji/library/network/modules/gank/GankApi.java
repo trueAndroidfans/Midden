@@ -1,8 +1,8 @@
 package com.aokiji.library.network.modules.gank;
 
 import com.aokiji.library.network.Api;
-import com.aokiji.library.network.models.gank.BaseResult;
-import com.aokiji.library.network.models.gank.meizhi.Meizhi;
+import com.aokiji.library.network.entities.gank.BaseResult;
+import com.aokiji.library.network.entities.gank.meizhi.Meizhi;
 
 import java.util.List;
 

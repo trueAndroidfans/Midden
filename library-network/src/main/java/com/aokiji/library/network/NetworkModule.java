@@ -2,11 +2,11 @@ package com.aokiji.library.network;
 
 import android.content.Context;
 
-import com.aokiji.library.network.interceptor.HeadInterceptor;
-import com.aokiji.library.network.interceptor.LoggingInterceptor;
-import com.aokiji.library.network.monitor.LiveNetworkMonitor;
-import com.aokiji.library.network.monitor.NetworkMonitor;
-import com.aokiji.library.network.monitor.NoNetworkException;
+import com.aokiji.library.network.interceptors.HeadInterceptor;
+import com.aokiji.library.network.interceptors.LoggingInterceptor;
+import com.aokiji.library.network.monitors.LiveNetworkMonitor;
+import com.aokiji.library.network.monitors.NetworkMonitor;
+import com.aokiji.library.network.monitors.NoNetworkException;
 
 import java.util.concurrent.TimeUnit;
 

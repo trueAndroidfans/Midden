@@ -1,6 +1,6 @@
 package com.aokiji.module.gank.modules.main;
 
-import com.aokiji.library.network.models.gank.meizhi.Meizhi;
+import com.aokiji.library.network.entities.gank.meizhi.Meizhi;
 import com.aokiji.mosby.mvp.lce.MvpLceView;
 
 import java.util.List;

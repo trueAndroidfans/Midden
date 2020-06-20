@@ -1,4 +1,4 @@
-package com.aokiji.library.network.monitor;
+package com.aokiji.library.network.monitors;
 
 public interface NetworkMonitor {
     boolean isConnected();

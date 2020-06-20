@@ -1,4 +1,4 @@
-package com.aokiji.library.network.interceptor;
+package com.aokiji.library.network.interceptors;
 
 
 import com.aokiji.library.base.utils.system.AppUtil;

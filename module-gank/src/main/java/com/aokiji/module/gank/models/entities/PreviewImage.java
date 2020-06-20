@@ -1,4 +1,4 @@
-package com.aokiji.module.gank.model;
+package com.aokiji.module.gank.models.entities;
 
 public class PreviewImage {
 

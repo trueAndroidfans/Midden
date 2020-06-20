@@ -1,4 +1,4 @@
-package com.aokiji.library.network.models.gank.meizhi;
+package com.aokiji.library.network.entities.gank.meizhi;
 
 public class Meizhi {
 

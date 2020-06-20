@@ -12,14 +12,14 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
-import com.aokiji.library.network.models.gank.meizhi.Meizhi;
+import com.aokiji.library.network.entities.gank.meizhi.Meizhi;
 import com.aokiji.library.network.modules.gank.GankNetworkModule;
-import com.aokiji.library.ui.adapter.AdapterWrapper;
-import com.aokiji.library.ui.listener.OnLoadMoreListener;
+import com.aokiji.library.ui.adapters.AdapterWrapper;
+import com.aokiji.library.ui.listeners.OnLoadMoreListener;
 import com.aokiji.module.gank.R;
 import com.aokiji.module.gank.R2;
 import com.aokiji.module.gank.modules.details.DetailsActivity;
-import com.aokiji.module.gank.ui.adapter.MeizhiAdapter;
+import com.aokiji.module.gank.ui.adapters.MeizhiAdapter;
 import com.aokiji.mosby.mvp.lce.MvpLceActivity;
 
 import java.util.ArrayList;

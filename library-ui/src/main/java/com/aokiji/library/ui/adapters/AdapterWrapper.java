@@ -1,4 +1,4 @@
-package com.aokiji.library.ui.adapter;
+package com.aokiji.library.ui.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;

@@ -1,4 +1,4 @@
-package com.aokiji.library.network.models.gank;
+package com.aokiji.library.network.entities.gank;
 
 public class BaseResult<T> {
 

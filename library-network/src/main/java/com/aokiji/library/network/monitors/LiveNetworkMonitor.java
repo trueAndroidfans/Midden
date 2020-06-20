@@ -1,4 +1,4 @@
-package com.aokiji.library.network.monitor;
+package com.aokiji.library.network.monitors;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

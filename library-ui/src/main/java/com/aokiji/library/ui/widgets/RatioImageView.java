@@ -17,7 +17,7 @@
  * along with Meizhi.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.aokiji.library.ui.widget;
+package com.aokiji.library.ui.widgets;
 
 import android.content.Context;
 import android.util.AttributeSet;

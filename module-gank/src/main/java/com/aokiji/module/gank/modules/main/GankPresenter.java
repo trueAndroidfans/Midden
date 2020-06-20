@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.aokiji.library.network.BackPack;
 import com.aokiji.library.network.modules.gank.GankApi;
-import com.aokiji.library.network.monitor.NoNetworkException;
+import com.aokiji.library.network.monitors.NoNetworkException;
 import com.aokiji.module.gank.R;
 import com.aokiji.mosby.mvp.MvpBasePresenter;
 

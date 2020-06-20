@@ -1,4 +1,4 @@
-package com.aokiji.module.gank.ui.adapter;
+package com.aokiji.module.gank.ui.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,8 +9,8 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.aokiji.library.network.models.gank.meizhi.Meizhi;
-import com.aokiji.library.ui.listener.OnItemClickListener;
+import com.aokiji.library.network.entities.gank.meizhi.Meizhi;
+import com.aokiji.library.ui.listeners.OnItemClickListener;
 import com.aokiji.module.gank.R;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.Target;

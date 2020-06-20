@@ -12,12 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.aokiji.module.gank.R;
 import com.aokiji.module.gank.R2;
-import com.aokiji.module.gank.model.PreviewImage;
-import com.aokiji.module.gank.ui.adapter.PreviewAdapter;
+import com.aokiji.module.gank.models.entities.PreviewImage;
+import com.aokiji.module.gank.ui.adapters.PreviewAdapter;
 import com.aokiji.module.gank.utils.RequestOptionsProvider;
 import com.aokiji.mosby.base.BaseActivity;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 
 import java.util.ArrayList;
@@ -64,7 +63,6 @@ public class EditActivity extends BaseActivity {
             image.setChecked(false);
             mList.add(image);
         }
-        mList.get(0).setChecked(true);
     }
 
 
