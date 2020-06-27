@@ -1,15 +1,20 @@
 package com.aokiji.module.gank.modules.details.edit;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.aokiji.library.ui.listeners.OnItemClickListener;
 import com.aokiji.module.gank.R;
 import com.aokiji.module.gank.R2;
 import com.aokiji.module.gank.models.entities.PreviewImage;
@@ -17,7 +22,9 @@ import com.aokiji.module.gank.ui.adapters.PreviewAdapter;
 import com.aokiji.module.gank.utils.RequestOptionsProvider;
 import com.aokiji.mosby.base.BaseActivity;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.target.Target;
+import com.bumptech.glide.request.transition.Transition;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +38,8 @@ public class EditActivity extends BaseActivity {
     Toolbar toolbar;
     @BindView(R2.id.iv_preview)
     ImageView ivPreview;
+    @BindView(R2.id.pb_preview)
+    ProgressBar pbPreview;
     @BindView(R2.id.rv_preview)
     RecyclerView rvPreview;
 
@@ -69,6 +78,7 @@ public class EditActivity extends BaseActivity {
     private void initView() {
         setupToolbar();
 
+        setupImageView(true);
         Glide.with(this)
                 .load(mUrl)
                 .override(Target.SIZE_ORIGINAL)
@@ -87,19 +97,46 @@ public class EditActivity extends BaseActivity {
     }
 
 
+    private void setupImageView(boolean show) {
+        if (show) {
+            pbPreview.setAlpha(0f);
+            ivPreview.setAlpha(1f);
+        } else {
+            pbPreview.setAlpha(1f);
+            ivPreview.setAlpha(0f);
+        }
+    }
+
+
     private void setupRecyclerView() {
         LinearLayoutManager manager = new LinearLayoutManager(this);
         manager.setOrientation(RecyclerView.HORIZONTAL);
         rvPreview.setLayoutManager(manager);
         mAdapter = new PreviewAdapter(this, mList);
-        mAdapter.setOnItemClickListener((view, position) -> {
-            Glide.with(EditActivity.this)
-                    .load(mUrl)
-                    .override(Target.SIZE_ORIGINAL)
-                    .apply(RequestOptionsProvider.provide(mList.get(position).getPreviewType()))
-                    .into(ivPreview);
-        });
+        mAdapter.setOnItemClickListener((view, position) -> onPreviewItemClick(mList.get(position).getPreviewType()));
         rvPreview.setAdapter(mAdapter);
+    }
+
+
+    private void onPreviewItemClick(int type) {
+        setupImageView(false);
+        CustomTarget<Drawable> target = new CustomTarget<Drawable>() {
+            @Override
+            public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
+                setupImageView(true);
+                ivPreview.setImageDrawable(resource);
+            }
+
+            @Override
+            public void onLoadCleared(@Nullable Drawable placeholder) {
+
+            }
+        };
+        Glide.with(EditActivity.this)
+                .load(mUrl)
+                .override(Target.SIZE_ORIGINAL)
+                .apply(RequestOptionsProvider.provide(type))
+                .into(target);
     }
 
 
