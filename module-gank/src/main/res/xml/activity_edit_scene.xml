@@ -40,11 +40,6 @@
                 app:motionTarget="@id/iv_hammer" />
 
             <KeyAttribute
-                android:alpha="1"
-                app:framePosition="99"
-                app:motionTarget="@id/iv_hammer" />
-
-            <KeyAttribute
                 android:alpha="00"
                 android:rotation="-45"
                 app:framePosition="100"

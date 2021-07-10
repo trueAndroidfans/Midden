@@ -1,20 +1,20 @@
 package com.aokiji.module.gank.modules.details.edit;
 
+import android.app.ProgressDialog;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.aokiji.library.ui.listeners.OnItemClickListener;
 import com.aokiji.module.gank.R;
 import com.aokiji.module.gank.R2;
 import com.aokiji.module.gank.models.entities.PreviewImage;
@@ -42,6 +42,8 @@ public class EditActivity extends BaseActivity {
     ProgressBar pbPreview;
     @BindView(R2.id.rv_preview)
     RecyclerView rvPreview;
+    @BindView(R2.id.iv_hammer)
+    ImageView ivHammer;
 
     private String mUrl;
     private String mDesc;
@@ -87,6 +89,10 @@ public class EditActivity extends BaseActivity {
                 .into(ivPreview);
 
         setupRecyclerView();
+
+        ivHammer.setOnClickListener(v -> ivHammer.postDelayed(() -> {
+
+        }, 1250));
     }
 
 
@@ -137,6 +143,11 @@ public class EditActivity extends BaseActivity {
                 .override(Target.SIZE_ORIGINAL)
                 .apply(RequestOptionsProvider.provide(type))
                 .into(target);
+    }
+
+
+    private void createWaterMarkThenSave() {
+
     }
 
 
